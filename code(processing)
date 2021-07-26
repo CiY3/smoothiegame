@@ -1,0 +1,163 @@
+String title = "Smoothie Maker";
+String tip = "Press Shift and Click to enter menus!";
+String menu = "Main";
+color bg = color(204, 255, 191);
+float bal = 1000;
+float xvalue;
+float value;
+float spent;
+int cups = 10;
+
+int strawberries = 0;
+int blueberries = 0;
+int apples = 0;
+int watermelon = 0;
+int dragonfruit = 0;
+
+void setup() {
+  size(750, 500);
+  background(color(bg));
+  textSize(20);
+  surface.setTitle(title);
+}
+
+void draw() {
+ 
+  //println(mouseX + ":" + mouseY);
+ 
+  if(menu == "Main") {
+  background(127, 168, 50);
+  textSize(20);
+  text(title, width/2 - title.length()*5, height - 9 * (height / 10));
+  textSize(14);
+  text(tip, width/2 - tip.length()*3.3,140);
+  rect(width/2-100,height/2-100,200,100);
+  fill(100,100,100);
+  textSize(40);
+  text("Shop",width/2-50,height/2-35);
+    
+  fill(255,255,255);
+  rect(width/2-100,height/2+100,200,100);
+  fill(100,100,100);
+  text("Sell",width/2-35,height/2+165);
+  fill(255,255,255);
+  }
+ 
+  if(menu == "Shop") {
+  background(color(bg));
+  fill(255,0,0);
+  circle(730,20,30);
+  fill(255,255,255);
+  textSize(18);
+  text("x",725,25);
+  textSize(15);
+  
+  fill(255, 112, 112); //strawberry shop
+  rect(100,100,100,100);
+  text("Strawberry : $2", 96, 85);
+  text(strawberries + " strawberries",100,225);
+    
+  fill(112, 162, 255); //blueberry shop
+  rect(250,100,100,100);
+  text("Blueberry : $1", 250, 85);
+  text(blueberries + " blueberries",250,225);
+    
+  fill(39, 173, 5); //watermelon shop
+  rect(400,100,100,100);
+  text("Watermelon : $50", 385, 85);
+  text(watermelon + " watermelon", 400, 225);
+  
+  fill(252, 126, 252); //dragonfruit shop
+  rect(550,100,100,100);
+  text("Dragonfruit : $50",540,85);
+  text(dragonfruit + " dragonfruit",550,225);
+    
+  text(bal,96,385);
+  }
+ 
+  if(menu == "Sell") {
+  xvalue = (strawberries * 2 + blueberries * 1 + watermelon * 50 + dragonfruit * 50);
+  value = (strawberries * 2 + blueberries * 1 + watermelon * 50 + dragonfruit * 50) * 1.112;
+  background(color(bg));
+  fill(255,0,0);
+  circle(730,20,30);
+  fill(255,255,255);
+  textSize(18);
+  text("x",725,25);
+  textSize(15);
+  fill(52, 198, 235);
+  rect(20,100,150,100);
+  fill(0,0,0);
+  text("Sell to Customer",34,130);
+  fill(100,100,100);
+  textSize(12);
+  text("Value must be over $10",29,144);
+    
+  fill(0,0,0);
+  text(round(bal) + " coins",10,20);
+  text("Literal Value: " + xvalue,10,40);
+  text("Market Value: " + value,10,60);
+  text("Profit: " + abs(spent - value),10,80);
+    
+  if (cups != 0) {
+    text("Cups Remaining: " + cups,10, 230);
+  } else text("No cups remaining! Please exit to main menu!",10, 230);
+  if (cups == 0) {
+  strawberries = 0;
+  blueberries = 0;
+  watermelon = 0;
+  dragonfruit = 0;
+  spent = 0;
+  }
+  }
+}
+
+void mouseReleased() {
+ 
+  if ((mouseX>width/2-100 && mouseX<width/2+100) && (mouseY>height/2-100 && mouseY<250) && menu == "Main" && keyCode == 16 && keyPressed == true) {
+    menu = "Shop";
+  }
+ 
+  if(mouseX > 270 && mouseX < 470 && mouseY > 340 && mouseY < 540 && menu == "Main" && keyCode == 16 && keyPressed == true) {
+    menu = "Sell";
+  }
+ 
+  if (mouseX>=700 && mouseX<=800 && mouseY<=30 && mouseY>=0 && ( menu == "Shop" || menu == "Sell" ) ) {
+    menu = "Main";
+  }
+ 
+  if (mouseX>100 && mouseX<200 && mouseY>100 && mouseY<200 && menu == "Shop" && bal >= 2) { //strawberry button
+    strawberries++;
+    bal = bal - 2;
+    spent = spent + 2;
+    println(strawberries + ":" + bal);
+  }
+ 
+  if (mouseX>250 && mouseX<350 && mouseY>100 && mouseY<200 && menu == "Shop" && bal >= 1) { //blueberry button
+    blueberries++;
+    bal = bal - 1;
+    spent = spent + 1;
+    println(blueberries + ":" + bal);
+  }
+ 
+  if (mouseX>400 && mouseX<500 && mouseY>100 && mouseY<200 && menu == "Shop" && bal >= 50 && (keyCode !=16 || keyPressed == false)) { //watermelon button
+    watermelon++;
+    bal = bal - 50;
+    spent = spent + 50;
+    println(watermelon + ":" + bal);
+  }
+  
+  if (mouseX>550 && mouseX<650 && mouseY>100 && mouseY<200 && menu == "Shop" && bal >= 50 && (keyCode !=16 || keyPressed == false)) { // dragonfruit button
+    dragonfruit++;
+    bal = bal - 50;
+    spent = spent + 50;
+    println(dragonfruit + ":" + bal);
+  }
+  if (mouseX>20 && mouseX<170 && mouseY>100 && mouseY<200 && menu == "Sell" && value>10 && cups != 0 ) {
+  bal = bal + value / 10;
+  cups--;
+  }
+}  
+
+
+
