@@ -1,3 +1,15 @@
 7/26/21
 - made acc for smoothie game epic
 - added dragonfruit
+
+7/27/21
+- bug fixes
+- code efficiency improvements
+- beginning to add apples
+- all fruits are locked at start
+  - can be unlocked with money
+  - (in game money, stupid)
+- minor graphical changes
+- added unlock menu
+
+- PS: file will be updated occasionally, just right now the code is messy AF and I still need to export an EXE to the project page so bear with me :D
