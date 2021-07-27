@@ -1,10 +1,7 @@
-7/26/21
-- made acc for smoothie game epic
-- added dragonfruit
-
-7/27/21
+** 7/27/21 **
 - bug fixes
-- code efficiency improvements
+  - cup reset
+  - price check issues
 - beginning to add apples
 - all fruits are locked at start
   - can be unlocked with money
@@ -12,4 +9,10 @@
 - minor graphical changes
 - added unlock menu
 
-- PS: file will be updated occasionally, just right now the code is messy AF and I still need to export an EXE to the project page so bear with me :D
+- PS: file will be updated occasionally, just right now the code is messy AF and I still need to export an EXE to the project page so bear with me. No update tmrw,
+im just gonna be bugfixing / cleaning up code, its a frickin mess right now. <3
+
+7/26/21
+- made acc for smoothie game epic
+- added dragonfruit
+- added sell menu
