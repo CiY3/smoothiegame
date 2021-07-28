@@ -2,12 +2,25 @@
 - bug fixes
   - menu not opening
 - apples added
+- beginning to add cherries
+  - 25 will get you either 1 or 2 cherries
+  - 1.4* value
 - can unlock with total spent
   - basically spent, but it never resets. you must spend 20 to unlock strawberry, etc
   - to prevent softlock
 - added unlock menu
 
+* after coding session *
+- more bug fixes
+  - unlocking not working
+- visual updates to
+  - main menu (bal)
+  - buy menu (more fruits)
+- changed unlock prices
+- began adding new softlock prevention feature ;)
+
 - PS: I know i said no update but I meant no download update (yall cant see what im doing)
+- after ses PS: give ideas for name of the game!
 
 7/27/21
 - bug fixes
