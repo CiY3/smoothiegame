@@ -1,4 +1,13 @@
-** 7/27/21 **
+7/28/21
+- bug fixes
+  - menu not opening
+- apples added
+- can unlock with total spent
+  - basically spent, but it never resets. you must spend 20 to unlock strawberry, etc
+  - to prevent softlock
+- added unlock menu
+
+7/27/21
 - bug fixes
   - cup reset
   - price check issues
